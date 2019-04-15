@@ -1,0 +1,35 @@
+{
+    "name": "bru2nii",
+    "label": "Bru2Nii: Bruker to NIfTI converter",
+    "description": "Bru2Nii is an open source medical image format converter from raw Bruker ParaVision to NIfTI, without any intermediate step through the DICOM standard formats.",
+    "author": "Matthew Brett, Andrew Janke, Mikaël Naveau, Chris Rorden",
+    "url": "https://github.com/neurolabusc/Bru2Nii",
+    "license": "Artistic-1.0-Perl",
+    "maintainer": "Flywheel <support@flywheel.io>",
+    "source": "https://github.com/flywheel-apps/Bru2Nii",
+    "version": "0.1.0",
+    "flywheel": "0",
+    "command": "./run.py",
+    "inputs": {
+        "bruker_file": {
+            "base": "file",
+            "description": "A zipped bruker file.",
+            "type": {
+                "enum": [ "ParaVision" ]
+            }
+        }
+    },
+    "config": {
+        "actual_size": {
+            "type": "boolean",
+            "description": "Actual size (otherwise x10 scale so animals match humans)",
+            "default": false
+        }
+    },
+    "custom": {
+        "docker-image": "flywheel/bru2nii:0.1.0",
+        "gear-builder": {
+            "image": "flywheel/bru2nii:0.1.0"
+        }
+    }
+}
