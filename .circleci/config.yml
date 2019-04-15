@@ -33,26 +33,26 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t Bru2Nii .
+            docker build -t bru2nii .
       - deploy:
           name: Deploy Docker Image
           command: |
             if [ "$DOCKER_USER" ]; then
               docker login -u $DOCKER_USER -p $DOCKER_PASS
               if [ "$CIRCLE_TAG" ]; then
-                docker tag Bru2Nii flywheel/Bru2Nii:${CIRCLE_TAG}
-                docker push flywheel/Bru2Nii:${CIRCLE_TAG}
+                docker tag bru2nii flywheel/bru2nii:${CIRCLE_TAG}
+                docker push flywheel/bru2nii:${CIRCLE_TAG}
                 (
                   IFS='.' read -ra VER_PARTS <<< "${CIRCLE_TAG}"
                   if [ "3" -eq "${#VER_PARTS[@]}" ]; then
                     MINOR_TAG="${VER_PARTS[0]}.${VER_PARTS[1]}"
-                    docker tag Bru2Nii flywheel/Bru2Nii:${MINOR_TAG}
-                    docker push flywheel/Bru2Nii:${MINOR_TAG}
+                    docker tag bru2nii flywheel/bru2nii:${MINOR_TAG}
+                    docker push flywheel/bru2nii:${MINOR_TAG}
                   fi
                 )
               fi
               if [ "$CIRCLE_BRANCH" == "master" ]; then
-                docker tag Bru2Nii flywheel/Bru2Nii:latest
-                docker push flywheel/Bru2Nii:latest
+                docker tag bru2nii flywheel/bru2nii:latest
+                docker push flywheel/bru2nii:latest
               fi
             fi
