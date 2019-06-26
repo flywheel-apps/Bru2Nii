@@ -7,7 +7,7 @@
     "license": "Artistic-1.0-Perl",
     "maintainer": "Flywheel <support@flywheel.io>",
     "source": "https://github.com/flywheel-apps/Bru2Nii",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "flywheel": "0",
     "command": "./run.py",
     "inputs": {
@@ -20,16 +20,16 @@
         }
     },
     "config": {
-        "actual_size": {
+        "scale_size": {
             "type": "boolean",
-            "description": "Actual size (otherwise x10 scale so animals match humans)",
+            "description": "Scale size (x10) so animals match humans",
             "default": false
         }
     },
     "custom": {
-        "docker-image": "flywheel/bru2nii:0.1.0",
+        "docker-image": "flywheel/bru2nii:0.1.1",
         "gear-builder": {
-            "image": "flywheel/bru2nii:0.1.0"
+            "image": "flywheel/bru2nii:0.1.1"
         }
     }
 }
