@@ -28,7 +28,7 @@ if __name__ == '__main__':
             '-f',   # force conversion of localizer images (multiple slice orientations)
             '-z',   # gz compress images (".nii.gz")
         ]
-        if context.config.get('actual_size'):
+        if not context.config.get('scale_size'):
             cmd.append('-a')  # actual size (otherwise x10 scale so animals match humans)
         output_filename = re.sub(r'\.pv\d\.zip$', '', input_filename)
         output_filepath = os.path.join(context.output_dir, output_filename)
